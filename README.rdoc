@@ -21,7 +21,26 @@ testing speces for chefs:
 - email must be unique (will be used logins)
 - email must be valid
 
+Chefs:
+What we have:
+    - Chef model and validations
+    - Chefs tables with columns chefname and email
 
+What we need to do:
+    - Add passwords to the chefs table, for authentication and logging in
+    - Use email as log in credentials, since email is unique
+    - Ability to register new chefs to use the app
+    - Ability to display chefs profile
+    - Ability to list chefs using the app
+    - Ability for chefs to log in and log out of the app
+    - Restrict actions such as create recipe, edit recipe and like feature to logged in chefs only
+    - Restricting edit of recipes by chefs who created the recipes
 
-
-
+Authentication Updates:
+1. Show recipe page -> Ability to edit/update only own recipe
+2. Navigation partial -> toggle menu, restrict menu
+3. Restrict thumbs up and thumbs down action to logged_in users only
+4. Recipe -> update to current_user
+5. Like -> update to current_user
+6. Before_action :require_used, except [:show, :index]
+7. Before_action :require_same_user for chefs, only: [:edit, :update]
